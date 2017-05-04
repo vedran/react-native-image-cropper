@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import {
   View,
@@ -56,8 +57,8 @@ class ImageCrop extends Component {
       centerY: 0.5,
 
       //Image sizes
-      imageHeight: 300,
-      imageWidth: 300,
+      imageWidth: this.props.imageWidth,
+      imageHeight: this.props.imageHeight,
       imageDimHeight: 0,
       imageDimWidth: 0,
       currentCapture: '',
@@ -192,6 +193,9 @@ class ImageCrop extends Component {
     this.setState({
       imageDimHeight: this._dimensionAfterZoom.height,
       imageDimWidth: this._dimensionAfterZoom.width,
+
+      imageWidth: nextProps.imageWidth,
+      imageHeight: nextProps.imageHeight,
 
       minZoom: (100-nextProps.minZoom)/100,
       maxZoom: (100-nextProps.maxZoom)/100,
